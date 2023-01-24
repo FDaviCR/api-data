@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+const connection = require('../database/mysql');
 //const functions = require('../functions');
 //const utils = require('../utils');
 
@@ -10,7 +11,7 @@ module.exports = {
   },
 
   async listAllPeople(request, response){
-    const allPeople = await Sequelize.query("CALL SelectAllPeople()");
+    const allPeople = await connection.query("CALL SelectAllPeople()");
     
     response.status(200).send({
       data: allPeople

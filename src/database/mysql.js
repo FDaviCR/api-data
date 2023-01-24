@@ -1,14 +1,18 @@
-import { Sequelize } from 'sequelize'; 
-import dotenv from 'dotenv';
+const Sequelize = require("sequelize");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
-export const sequelize = new Sequelize(
+const connection = new Sequelize(
   process.env.MYSQL_DB,
   process.env.MYSQL_USER,
   process.env.MYSQL_PASSWORD,
   {
-    dialect: 'mysql',
-    port: process.env.MYSQL_PORT
+      host: 'localhost',
+      dialect: 'mysql',
+      timezone: "-03:00"
   }
+  
 );
+
+module.exports = connection;

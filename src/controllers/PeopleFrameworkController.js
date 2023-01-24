@@ -1,6 +1,7 @@
 const { Sequelize } = require('sequelize');
-//const functions = require('../functions');
+const functions = require('../functions');
 //const utils = require('../utils');
+const People = require('../models/People');
 
 module.exports = {
   async root(request, response){
@@ -10,10 +11,16 @@ module.exports = {
   },
 
   async listAllPeople(request, response){
-    const allPeople = await Sequelize.query("CALL SelectAllPeople()");
+
+    try {
+      const allPeople = await People.findAll();
+    } catch (error) {
+      console.log(error);
+    }
+    
 
     response.status(200).send({
-      data: allPeople
+      data: 1
     })
   },
 
