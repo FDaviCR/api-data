@@ -1,5 +1,7 @@
 const { Router } = require('express');
-//const BankSlipController = require('../controllers/BankSlipController');
+const PeopleFrameworkController = require('../controllers/PeopleFrameworkController');
+const PeopleProcedureController = require('../controllers/PeopleProcedureController');
+
 const routes = Router();
 
 // Rota raíz para testes
@@ -10,6 +12,9 @@ routes.get('/', (request, response) => {
   });
 });
 
-//routes.get('/boleto/:linhaDigitavel', BankSlipController.linhaDigitavel);
+routes.get('/framework/allPeople', PeopleFrameworkController.listAllPeople);
+
+routes.get('/procedure/allPeople', PeopleProcedureController.listAllPeople);
+
 
 module.exports = routes;

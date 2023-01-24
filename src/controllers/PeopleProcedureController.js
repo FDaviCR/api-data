@@ -11,7 +11,7 @@ module.exports = {
 
   async listAllPeople(request, response){
     const allPeople = await Sequelize.query("CALL SelectAllPeople()");
-
+    
     response.status(200).send({
       data: allPeople
     })
