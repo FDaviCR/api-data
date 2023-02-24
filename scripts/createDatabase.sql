@@ -1,1 +1,1 @@
-CREATE DATABASE PEOPLE;
+CREATE DATABASE performace_analisys;
