@@ -11,17 +11,18 @@ module.exports = {
   },
 
   async listAllPeople(request, response){
-
     try {
       const allPeople = await People.findAll();
+
+      response.status(200).send({
+        data: allPeople
+      })
     } catch (error) {
       console.log(error);
+
+      response.status(400)
     }
     
-
-    response.status(200).send({
-      data: 1
-    })
   },
 
   async listPeople(request, response){

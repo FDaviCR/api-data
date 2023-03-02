@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const connection = require("../database/mysql");
 
-const People = connection.define('people',{
+const People = connection.define('PEOPLE',{
     name:{
         type: Sequelize.STRING,
         allowNull: false
@@ -22,6 +22,8 @@ const People = connection.define('people',{
         type: Sequelize.STRING,
         allowNull: false
     }
+},{
+    timestamps: false
 })
 
 People.sync({force:false});
