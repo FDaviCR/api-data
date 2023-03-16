@@ -24,6 +24,25 @@ module.exports = {
     }
     
   },
+  
+  async listPeopleForGender(request, response){
+    let gender = '';
+    try {
+      const people = await People.findAll({
+        where: {
+          gender: gender
+        }
+      });
+
+      response.status(200).send({
+        data: people
+      })
+    } catch (error) {
+      console.log(error);
+
+      response.status(400)
+    }
+  }
 
   async listPeople(request, response){
     response.status(200).send({
